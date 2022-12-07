@@ -1,5 +1,5 @@
-const fs = require('fs');                                   //This is needed to import a txt file
 const { start } = require('repl');
+const fs = require('fs');                                   //This is needed to import a txt file
 const rawData = fs.readFileSync("input.txt", 'utf-8');      //This actually imports txt file (utf-8 is the style?... either way it's importaint)
 //console.log(rawData)
 let myString1 = '';
