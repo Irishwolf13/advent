@@ -215,8 +215,13 @@ function makeMovesHere(numbToMove, fromHere, toHere) {
     // console.log(fromHere)
     // console.log(toHere)
     for (let i = 1; i <= numbToMove; i++) {
-        myStacks[toHere -1].push(myStacks[fromHere -1].pop())
+        //Pop it and move it to empty stack
+        myStacks[9].push(myStacks[fromHere -1].pop())
     }
+    for (let i = 1; i <= numbToMove; i++){
+        myStacks[toHere -1].push(myStacks[9].pop())
+    }
+    // run another for loop, and pop from previously empty stack into ending stack.
 }
 
 const myArray1 = [];
@@ -237,7 +242,8 @@ const myStack6 = new stackArrays();
 const myStack7 = new stackArrays();
 const myStack8 = new stackArrays();
 const myStack9 = new stackArrays();
-const myStacks = [myStack1, myStack2, myStack3, myStack4, myStack5, myStack6, myStack7, myStack8, myStack9]
+const tempStack = new stackArrays();
+const myStacks = [myStack1, myStack2, myStack3, myStack4, myStack5, myStack6, myStack7, myStack8, myStack9, tempStack]
 
 processFromRawData();
 moveCargo();
