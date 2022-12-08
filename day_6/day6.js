@@ -48,6 +48,7 @@ function checkRawData() {
     let firstCheck = 0;
     let targetSet = 14;
     let mySet = new Set;
+
     for (i in rawData) {
         if (firstCheck < 14){
             myDataToCheck.enter(rawData[i]);
@@ -56,7 +57,7 @@ function checkRawData() {
             if (myDataToCheck.length == 14) {
                 //Make first check here
                 if (mySet.size == 14) {
-                    console.log(targetSet);
+                    console.log("Iran", targetSet);
                 }
                 mySet = new Set;
             }
@@ -64,20 +65,11 @@ function checkRawData() {
             myDataToCheck.exit();
             myDataToCheck.enter(rawData[i]);
             targetSet++;
-            mySet.add(myDataToCheck.first.value) //1
-            mySet.add(myDataToCheck.first.next.value) //2
-            mySet.add(myDataToCheck.first.next.next.value) //3
-            mySet.add(myDataToCheck.first.next.next.next.value) //4
-            mySet.add(myDataToCheck.first.next.next.next.next.value) //5
-            mySet.add(myDataToCheck.first.next.next.next.next.next.value) //6
-            mySet.add(myDataToCheck.first.next.next.next.next.next.next.value) //7
-            mySet.add(myDataToCheck.first.next.next.next.next.next.next.next.value) //8
-            mySet.add(myDataToCheck.first.next.next.next.next.next.next.next.next.value) //9
-            mySet.add(myDataToCheck.first.next.next.next.next.next.next.next.next.next.value) //10
-            mySet.add(myDataToCheck.first.next.next.next.next.next.next.next.next.next.next.value) //11
-            mySet.add(myDataToCheck.first.next.next.next.next.next.next.next.next.next.next.next.value) //12
-            mySet.add(myDataToCheck.first.next.next.next.next.next.next.next.next.next.next.next.next.value) //13
-            mySet.add(myDataToCheck.last.value)
+            let myInput = myDataToCheck.first;
+            for (let i = 0; i < myDataToCheck.length; i++) {
+                mySet.add(myInput.value)
+                myInput = myInput.next;
+            }
             //Make check here
             if (mySet.size == 14) {
                 console.log(mySet)
@@ -86,7 +78,6 @@ function checkRawData() {
             }
             mySet = new Set;
         }
-        
     }
 }
 
